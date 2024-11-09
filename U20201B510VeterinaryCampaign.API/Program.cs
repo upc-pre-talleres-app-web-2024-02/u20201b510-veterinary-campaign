@@ -1,3 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using U20201B510VeterinaryCampaign.API.CRM.Application.Internal.CommandServices;
+using U20201B510VeterinaryCampaign.API.CRM.Application.Internal.QueryServices;
+using U20201B510VeterinaryCampaign.API.CRM.Domain.Repositories;
+using U20201B510VeterinaryCampaign.API.CRM.Domain.Services;
+using U20201B510VeterinaryCampaign.API.CRM.Infrastructure.Persistence.EFC.Repositories;
+using U20201B510VeterinaryCampaign.API.Shared.Domain.Repositories;
+using U20201B510VeterinaryCampaign.API.Shared.Infrastructure.Interfaces.ASP.Configuration;
+using U20201B510VeterinaryCampaign.API.Shared.Infrastructure.Persistence.EFC.Configuration;
+using U20201B510VeterinaryCampaign.API.Shared.Infrastructure.Persistence.EFC.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 
@@ -48,10 +59,12 @@ builder.Services.AddScoped<IUnitOfWOrk, UnitOfWork>();
 //----------------- IAggregateRepository - AggregateRepository -----------------
 //----------------- IAggregateCommandService - AggregateCommandService -----------------
 //----------------- IAggregateQueryService - AggregateQueryService -----------------
+builder.Services.AddScoped<IManagerRepository, ManagerRepository>();
+builder.Services.AddScoped<IManagerCommandService, ManagerCommandService>();
+builder.Services.AddScoped<IManagerQueryService, ManagerQueryService>();
 
-builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
-builder.Services.AddScoped<IAppointmentCommandService, AppointmentCommandService>();
-builder.Services.AddScoped<IAppointmentQueryService, AppointmentQueryService>();
+
+
 
 
 
