@@ -1,0 +1,6 @@
+@U20201B510VeterinaryCampaign.API_HostAddress = http://localhost:5247
+
+GET {{U20201B510VeterinaryCampaign.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
